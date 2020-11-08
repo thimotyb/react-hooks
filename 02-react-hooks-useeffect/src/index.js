@@ -7,8 +7,9 @@ function App() {
   let [names, setNames] = useState([]);
 
   useEffect(() => {
-    fetch("https://uinames.com/api/?amount=25&region=nigeria")
+    fetch("http://www.7timer.info/bin/astro.php?lon=113.2&lat=23.1&ac=0&unit=metric&output=json&tzshift=0")
       .then(response => response.json())
+      .then(data => { console.log(data); return data.dataseries; } )
       .then(data => {
         setNames(data);
       });
@@ -19,7 +20,7 @@ function App() {
       <div>
         {names.map((item, i) => (
           <div key={i}>
-            {item.name} {item.surname}
+            {item.timepoint} {item.cloudcover}
           </div>
         ))}
       </div>
