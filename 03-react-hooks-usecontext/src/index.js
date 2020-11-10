@@ -5,12 +5,12 @@ import "./styles.css";
 const JediContext = React.createContext();
 
 function Display() {
-  const value = useContext(JediContext);
-  return <div>{value}, I am your Father.</div>;
+  const pippo = useContext(JediContext);
+  return <div>{pippo}, I am your Father.</div>;
 }
 
 function App() {
-  return (
+  return (  
     <JediContext.Provider value={"Luke"}>
       <Display />
     </JediContext.Provider>

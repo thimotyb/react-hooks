@@ -16,9 +16,23 @@ function App() {
       <p>{myCount}</p>
       <button onClick={increment}>Increment</button>
       <button onClick={decrement}>Decrement</button>
+      <InternalCounter/>
+      <InternalCounter/>
     </div>
   );
 }
+
+function InternalCounter() {
+  const [internalCount, { increment, decrement }] = useCounter({ initialState: 100 });
+  return (
+    <div style={{backgroundColor: "red"}}>
+      <p>{internalCount}</p>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+    </div>
+  )
+}
+
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
