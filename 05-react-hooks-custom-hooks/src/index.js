@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import "./styles.css";
 
@@ -6,7 +6,8 @@ function useCounter({ initialState }) {
   const [count, setCount] = useState(initialState);
   const increment = () => setCount(count + 1);
   const decrement = () => setCount(count - 1);
-  return [count, { increment, decrement, setCount }];
+  useEffect(() => document.title = count);
+  return [count, { increment, decrement }];
 }
 
 function App() {
